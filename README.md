@@ -4,10 +4,10 @@
 
 | Task Description                                                                                       | Assigned Member |
 |--------------------------------------------------------------------------------------------------------|---------------------|
-| Select and finalize project topic                                                                      |    Everyone                 |
-| Define research questions and project goals                                                            |                     |
-| Develop data preprocessing pipeline (data cleaning, handling missing values, format adjustments)       |                     |
-| Perform initial descriptive analysis (distributions, correlations, etc.)                               |                     |
+| Select and finalize project topic                                                                      |    Everyone         |
+| Define research questions and project goals                                                            |    Koami            |
+| Develop data preprocessing pipeline (data cleaning, handling missing values, format adjustments)       |    Koami            |
+| Perform initial descriptive analysis (distributions, correlations, etc.)                               |    Koami            |
 | Identify potential additional datasets and assess feasibility                                          |                     |
 | Document proposed methods, including mathematical details and alternatives                             |                     |
 | Structure and organize the GitHub repository                                                           |                     |
