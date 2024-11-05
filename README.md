@@ -8,12 +8,12 @@
 | Define research questions and project goals                                                            |    Koami            |
 | Develop data preprocessing pipeline (data cleaning, handling missing values, format adjustments)       |    Koami            |
 | Perform initial descriptive analysis (distributions, correlations, etc.)                               |    Koami            |
-| Identify potential additional datasets and assess feasibility                                          |     Val             |
+| Identify potential additional datasets and assess feasibility                                          |    Val              |
 | Document proposed methods, including mathematical details and alternatives                             |                     |
-| Structure and organize the GitHub repository                                                           |     Val             |
-| Create README with project title, abstract, and research questions                                     |                     |
-| Develop and document code in Jupyter notebook                                                          |                     |
-| Conduct final review and refine README, methods, and notebook documentation                            |                     |
+| Structure and organize the GitHub repository                                                           |    Val              |
+| Create README with project title, abstract, and research questions                                     |    Antoine          |
+| Develop and document code in Jupyter notebook                                                          |    Everyone         |
+| Conduct final review and refine README, methods, and notebook documentation                            |    Everyone         |
 | Submit finalized GitHub repository                                                                     |                     |
 
 
