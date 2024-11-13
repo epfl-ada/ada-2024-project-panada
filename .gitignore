@@ -4,4 +4,6 @@ data/num_comments.tsv
 data/num_comments_authors.tsv
 data/yt_metadata_helper.feather
 
+data/df_timeseries_en_cleaned.tsv
+
 *.DS_Store
