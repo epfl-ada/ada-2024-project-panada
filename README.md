@@ -1,6 +1,6 @@
 # From Hobby to Profession: The Evolution of YouTube as a Career Platform
 
-![Alt text](youniverse.png "a title")
+![Alt text](./youniverse.png "YouNiverse")
 
 ## Abstract
 
