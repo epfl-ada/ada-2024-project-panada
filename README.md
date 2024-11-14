@@ -73,9 +73,18 @@ We can find the history of YouTube's policy over the years on several web sites 
 - Methods:
    - Event Study Analysis: Identify key policy and algorithm updates (e.g., monetization changes, algorithm adjustments) and conduct pre- and post-analysis of engagement and growth metrics.
    - Statistical Comparison Across Event Intervals: For each identified change, compare key metrics (e.g., views, subscriber growth) across intervals before and after the event.
-   - Keyword Analysis on Content Titles: Analyze shifts in common keywords used in video titles over time, examining whether creators tailored content strategies in response to policy and algorithmic shifts.
 
 ## Proposed timeline
+
+- 15.11.2024 Data Cleaning and Preprocessing & Initial Exploratory Data Analysis.
+
+- 04.12.2024 Implementation of the analysis that answer the research questions following the methods mentionned above.
+
+- 10.12.2024 Compile the final analysis in a platform/format that the team will think about in the next days.
+
+- 14.12.2024 Write the project report.
+
+- 20.12.2024 Submit the Data Story
 
 #### Step 1: Data exploration
 
