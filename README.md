@@ -86,14 +86,6 @@ We can find the history of YouTube's policy over the years on several web sites 
 
 - 20.12.2024 Submit the Data Story
 
-#### Step 1: Data exploration
-
-#### Step 2: Data cleaning
-
-#### Step 3: Data Analysis
-
-#### Step 4: Compilation of all our analysis
-
 ## Organization within the team
 
 ## Questions for TA (optional)
