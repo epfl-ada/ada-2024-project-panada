@@ -80,13 +80,16 @@ We can find the history of YouTube's policy over the years on several web sites 
 
 - 04.12.2024 Implementation of the analysis that answer the research questions following the methods mentionned above.
 
-- 10.12.2024 Compile the final analysis in a platform/format that the team will think about in the next days.
+- 10.12.2024 Compile the final analysis in a platform/format that the team will think about in the next days. (Create the Data Story)
 
 - 14.12.2024 Write the project report.
 
 - 20.12.2024 Submit the Data Story
 
 ## Organization within the team
+
+- Each member can work on one research question.
+- Each team member will be responsible for making the final visualization to complete the Data Story.
 
 ## Questions for TA (optional)
 
