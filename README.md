@@ -1,5 +1,7 @@
 # From Hobby to Profession: The Evolution of YouTube as a Career Platform
 
+![Alt text](youniverse.png "a title")
+
 ## Abstract
 
 Since its inception in 2005, YouTube has transformed from a casual video-sharing site into
