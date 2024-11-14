@@ -1,19 +1,51 @@
-# ada-2024-project-panada
+# From Hobby to Profession: The Evolution of YouTube as a Career Platform
 
-### Project Idea
-We want to analyze YouTube’s Evolution into a Professional Platform for Creators.
-When YouTube was created in 2005, the platform was not professionalized but it became
-now for many people, their main source of income. This project explores how YouTube
-evolved from a casual video-sharing site into a professional platform for full-time
-creators. Using the channel metadata and time-series data, we would analyze how the
-average size of successful channels (subscribers and views) has changed over time and
-identify signals of professionalization, such as increased upload frequency and consistent
-content themes. Additionally, we would explore which content categories (e.g., Gaming,
-Education) have seen the most professional growth, using the video metadata to track
-shifts in production quality and upload patterns. We’d correlate these changes with the
-introduction of monetization features (e.g., AdSense) and algorithm updates, to map out
-the timeline of YouTube’s transformation into a career-driven platform.
+## Abstract
 
+Since its inception in 2005, YouTube has transformed from a casual video-sharing site into
+a professional platform supporting countless full-time creators. This project investigates
+YouTube’s evolution by examining how the average size of successful channels (measured in
+subscribers and views) has changed over time. Using channel metadata and time-series data,
+we analyze key indicators of professionalization, such as increased upload frequency, content
+consistency, and strategic engagement practices. Additionally, we explore which content categories
+(e.g., Gaming, Education) have driven the platform’s growth by tracking shifts in production quality,
+audience reach, and upload patterns in the video metadata. Through this lens, we map out YouTube’s
+transition into a viable career platform and highlight the broader industry trends that support
+the professionalization of digital content creation.
+
+## Research Questions
+
+- How has the frequency and consistency of content creation evolved over time across different channel categories?
+
+- How has creator content strategy evolved to reflect professional monetization approaches?
+
+- Which categories led YouTube's professionalization, and how did professional practices spread?
+
+- How does investment in content production reflect the transition from hobby to profession?
+
+- How has community management evolved from casual interaction to professional engagement strategies?
+
+## Proposed additional datasets (if any)
+
+TODO: Waiting for Valentine's update
+
+## Methods
+
+TODO: Waiting for Adam's update
+
+## Proposed timeline
+
+#### Step 1: Data exploration
+
+#### Step 2: Data cleaning
+
+#### Step 3: Data Analysis
+
+#### Step 4: Compilation of all our analysis
+
+## Organization within the team
+
+## Questions for TA (optional)
 
 ## Data Cleaning Pipeline
 
