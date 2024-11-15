@@ -2,6 +2,50 @@
 
 ![Alt text](./youniverse.png "YouNiverse")
 
+
+
+```bash
+# clone project
+git clone <project link>
+cd <project repo>
+
+# install requirements
+pip install -r pip_requirements.txt
+```
+
+
+
+### How to use the library
+The heart of our code is in ```results.ipynb```. You will find our data visualisation methods to study our dataset and extract interesting features and data.
+in ```src/models``` you will find the files for the different data cleaning methods we have implemented for each different file as liabilities are different from one file to another.
+
+### How to load the dataset
+Because the size of the dataset is too important, it is not included in the ```/data``` folder, in order to load the dataset,  download it from this link : https://zenodo.org/records/4650046 and load it into the folder, the file names are in the ```.gitignore```.
+
+## Project Structure
+
+The directory structure of new project looks like this:
+
+```
+├── data                        <- Project data files
+│
+├── src                         <- Source code
+│   ├── data                            <- Data directory
+│   ├── models                          <- Model directory
+│   ├── utils                           <- Utility directory
+│   ├── scripts                         <- Shell scripts
+│
+├── tests                       <- Tests of any kind
+│
+├── results.ipynb               <- a well-structured notebook showing the results
+│
+├── .gitignore                  <- List of files ignored by git
+├── pip_requirements.txt        <- File for installing python dependencies
+└── README.md
+```
+
+
+
 ## Abstract
 
 Since its inception in 2005, YouTube has transformed from a casual video-sharing site into
