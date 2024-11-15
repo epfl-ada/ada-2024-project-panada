@@ -111,21 +111,11 @@ We started by identifying and evaluating missing values across the dataset. We a
 
 
 ### Tasks and Responsibilities
-
-| Task Description                                                                                       | Assigned Member |
-|--------------------------------------------------------------------------------------------------------|---------------------|
-| Select and finalize project topic                                                                      |    Everyone         |
-| Define research questions and project goals                                                            |    Koami            |
-| Develop data preprocessing pipeline (data cleaning, handling missing values, format adjustments)       |    Koami            |
-| Perform initial descriptive analysis (distributions, correlations, etc.)                               |    Koami            |
-| Identify potential additional datasets and assess feasibility                                          |    Val              |
-| Document proposed methods, including mathematical details and alternatives                             |    Adam                 |
-| Structure and organize the GitHub repository                                                           |    Val              |
-| Create README with project title, abstract, and research questions                                     |    Antoine          |
-| Develop and document code in Jupyter notebook                                                          |    Everyone         |
-| Conduct final review and refine README, methods, and notebook documentation                            |    Everyone         |
-| Submit finalized GitHub repository                                                                     |                     |
-
+- Additional Dataset for each problem and feasibility assessement : Valentine
+- Data preprocessing pipeline (data cleaning, handling missing values, format adjustments) : Imane
+- Projet goals questions, README structure and writing, future method implementation for answer solving : Antoine
+- Initial descriptive analysis performance (distributions, correlations, etc.) and data visualisation : Koami
+- Potential method search for answer solving : Adam
 
 ### Task Deadlines
 
