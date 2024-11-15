@@ -107,6 +107,20 @@ Key considerations include:
 - **Objective**: Explore how YouTube policy and algorithm changes influenced professionalization.
 - **Approach**: Conduct event studies and compare pre- and post-change metrics (e.g., views, subscriber growth).
 
+## Data Cleaning Pipeline
+
+Our data cleaning process aims to ensure a good quality input for our analysis by handling missing values effectively. The following steps outline the cleaning and preprocessing approach applied to our dataset:
+
+We started by identifying and evaluating missing values across the dataset. We also checked for inconsistencies or unusual entries that may require specific handling.
+
+1. **NaN Removal**:
+   - Removal of rows with a high proportion of missing values (>25% NaNs).
+   - For entries with low to moderate NaNs, we retained data where possible to preserve dataset integrity.
+
+2. **K-Nearest Neighbors (KNN) Imputation**:
+   - For remaining missing values, we used KNN imputation to predict and fill missing entries based on similarities between data points.
+   - Each missing value is replaced by the weighted average of its K-nearest neighbors, with K set to an optimal value (5 in our case) after testing for best imputation results.
+
 ## Proposed timeline
 
 - 15.11.2024 Data Cleaning and Preprocessing & Initial Exploratory Data Analysis.
@@ -126,19 +140,7 @@ Key considerations include:
 
 ## Questions for TA (optional)
 
-## Data Cleaning Pipeline
 
-Our data cleaning process aims to ensure a good quality input for our analysis by handling missing values effectively. The following steps outline the cleaning and preprocessing approach applied to our dataset:
-
-We started by identifying and evaluating missing values across the dataset. We also checked for inconsistencies or unusual entries that may require specific handling.
-
-1. **NaN Removal**:
-   - Removal of rows with a high proportion of missing values (>25% NaNs).
-   - For entries with low to moderate NaNs, we retained data where possible to preserve dataset integrity.
-
-2. **K-Nearest Neighbors (KNN) Imputation**:
-   - For remaining missing values, we used KNN imputation to predict and fill missing entries based on similarities between data points.
-   - Each missing value is replaced by the weighted average of its K-nearest neighbors, with K set to an optimal value (5 in our case) after testing for best imputation results.
 
 
 ### Tasks and Responsibilities
