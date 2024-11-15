@@ -3,7 +3,7 @@
 ![Alt text](./youniverse.png "YouNiverse")
 
 
-
+### How to start the project
 ```bash
 # clone project
 git clone <project link>
@@ -71,54 +71,41 @@ the professionalization of digital content creation.
 
 - How has community management evolved from casual interaction to professional engagement strategies?
 
-## Proposed additional datasets (if any)
+## Proposed additional datasets
 
-TODO: Waiting for Valentine's update
+The YouNiverse database is extensive but lacks economic data, a key factor in understanding professionalization. Revenue sources like AdSense are relevant but limited by data availability, as Alphabet has only published separate figures since 2019. Additional revenue streams, such as e-books, online courses, crowdfunding, and brand partnerships, lack comprehensive data across regions and stakeholders. Peripheral economies, like gaming and e-sports, offer potential insights but face similar access and cost barriers. For instance, e-sports data and Twitch metrics are costly and restricted, while video game developer revenues may introduce biases.
+
+Key considerations include:
+- Primary YouTube revenue sources: AdSense, sponsorships, merchandise, crowdfunding, online courses, and fan support platforms.
+- Viewer demographics: ~25% of YouTube viewers are from India, ~10% from the U.S.
+- Dominant content: Indian entertainment, children’s content, and music lead YouTube charts.
 
 ## Methods
 
 #### 1. Growth Trends Analysis
 
-- Objective: Quantify how the scale of content creation and audience size has grown over time, reflecting increased professionalization.
+- **Objective**: Quantify growth in content creation and audience size to reflect professionalization.
+- **Approach**: Analyze cumulative channel and video counts, and use time-series models to track subscriber and view trends over time.
 
-- Methods:
-   - Channel and Video Counts Over Time: Calculate the cumulative count of channels and videos, observing growth rates and shifts, especially around key dates (e.g., introduction of monetization features, we could find these informations on the web without needed an additional dataset).
-   - Time-Series Analysis of Subscribers and Views: For each channel category, use time-series analysis to model growth in average views and subscribers over time, noting periods with significant increases.
+#### 2. Content Production Consistency
 
-#### 2. Content Production and Consistency Analysis
+- **Objective**: Assess adoption of regular upload practices by creators.
+- **Approach**: Evaluate posting frequency, analyze variance in upload schedules, and apply rolling averages to identify trends in consistent content production.
 
-- Objective: Examine whether creators adopted professional practices, such as regular content uploads.
+#### 3. Engagement Trends
 
-- Methods:
-   - Posting Frequency by Category: Track average weekly upload frequency per category over time, identifying categories where consistent posting became prominent.
-   - Variance Analysis in Posting Patterns: Lower variance over time can indicate regular posting schedules, a hallmark of professional content creators.
-   - Rolling Averages of Posting Frequency: Apply rolling averages to capture trends in posting frequency, showing how channels transitioned to more consistent content schedules.
+- **Objective**: Measure audience engagement as an indicator of professional interaction.
+- **Approach**: Track comment volume and unique commenters, and correlate engagement metrics (e.g., likes, comments) with subscriber growth.
 
-#### 3. Engagement and Audience Interaction Trends
+#### 4. Category Growth and Strategy Shifts
 
-- Objective: Measure the growth in audience engagement as an indicator of professional interaction strategies.
+- **Objective**: Identify leading categories in professionalization and strategy evolution.
+- **Approach**: Analyze growth by category, evaluate video quality and length, and cluster channels based on content production characteristics.
 
-- Methods:
-   - Comment Volume and Unique Commenter Counts Over Time: Track increases in both comment volume and the number of unique commenters, analyzing growth as a sign of professional audience management.
-   - Engagement-to-Growth Correlation: Correlate engagement metrics (e.g., likes, comments) with subscriber growth to highlight the impact of active audience interaction.
+#### 5. Algorithm and Policy Impacts
 
-#### 4. Categorical Growth and Shifts in Content Strategy
-
-- Objective: Identify which categories (e.g., Gaming, Education) led the way in professionalization and how strategies evolved within these categories.
-
-- Methods:
-   - Category-Wise Growth Trajectory: Perform categorical trend analysis to identify early-adopting categories and track their growth relative to others.
-   - Video Length and Quality Indicators by Category: Analyze the average video length, resolution, and production quality over time for each category, identifying which content types transitioned into more professional formats first.
-   - Cluster Analysis on Content Strategy: Cluster channels based on production characteristics (e.g., video length, upload frequency) to reveal content strategy shifts and identify archetypes of professional channels.
-
-#### 5. Impact of YouTube Algorithm and Policy Changes
-
-- Objective: Map YouTube's policy and algorithm updates to shifts in creator behavior and audience engagement, exploring how these changes accelerated professionalization.
-We can find the history of YouTube's policy over the years on several web sites so we could then correlate the information found on the internet with our dataset.
-
-- Methods:
-   - Event Study Analysis: Identify key policy and algorithm updates (e.g., monetization changes, algorithm adjustments) and conduct pre- and post-analysis of engagement and growth metrics.
-   - Statistical Comparison Across Event Intervals: For each identified change, compare key metrics (e.g., views, subscriber growth) across intervals before and after the event.
+- **Objective**: Explore how YouTube policy and algorithm changes influenced professionalization.
+- **Approach**: Conduct event studies and compare pre- and post-change metrics (e.g., views, subscriber growth).
 
 ## Proposed timeline
 
@@ -161,19 +148,4 @@ We started by identifying and evaluating missing values across the dataset. We a
 - Initial descriptive analysis performance (distributions, correlations, etc.) and data visualisation : Koami
 - Potential method search for answer solving : Adam
 
-### Task Deadlines
-
-| Task Description                                                                                       | Deadline           |
-|--------------------------------------------------------------------------------------------------------|---------------------|
-| Select and finalize project topic                                                                      |   06.11                  |
-| Define research questions and project goals                                                            |   09.11             |
-| Develop data preprocessing pipeline (data cleaning, handling missing values, format adjustments)       |     11.11                |
-| Perform initial descriptive analysis (distributions, correlations, etc.)                               |          11.11           |
-| Identify potential additional datasets and assess feasibility                                          |          12.11           |
-| Document proposed methods, including mathematical details and alternatives                             |          12.11           |
-| Structure and organize the GitHub repository                                                           |            13.11         |
-| Create README with project title, abstract, and research questions                                     |               13.11      |
-| Develop and document code in Jupyter notebook                                                          |   12.11                  |
-| Conduct final review and refine README, methods, and notebook documentation                            |        14.11             |
-| Submit finalized GitHub repository                                                                     |      14.11               |
 
