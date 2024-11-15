@@ -1,11 +1,10 @@
-
 import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import numpy as np
 
 def clean_data(input_file, output_file):
     # Load the TSV file
-    df = pd.read_csv(input_file, sep='\t')
+    df = pd.read_csv(input_file, compression="infer", sep='\t')
     
     # Drop rows with missing values in specified columns
     df_cleaned = df.dropna(subset=['category_cc', 'join_date', 'name_cc'])
@@ -40,7 +39,7 @@ def clean_data(input_file, output_file):
     print(f"Cleaned data saved to {output_file}")
 
 
-input_file = 'data/df_channels.tsv'
-output_file = 'data/df_channels_cleaned.tsv'
+input_file = '../../data/df_channels.tsv.gz'
+output_file = '../../data/df_channels_cleaned.tsv'
 clean_data(input_file, output_file)
 

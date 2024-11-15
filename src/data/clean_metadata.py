@@ -43,4 +43,4 @@ def clean_feather(input_file, output_file):
     print(f"Cleaned data has been saved to {output_file}")
 
 # Example usage
-clean_feather('data/yt_metadata_helper.feather', 'data/yt_metadata_cleaned.feather')
+clean_feather('../../data/yt_metadata_helper.feather', '../../data/yt_metadata_cleaned.feather')

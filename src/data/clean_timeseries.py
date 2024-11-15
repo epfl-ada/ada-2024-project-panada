@@ -1,9 +1,9 @@
 import pandas as pd
 
 def clean_timeseries_data(input_file, output_file):
-    df = pd.read_csv(input_file, sep="\t")
+    df = pd.read_csv(input_file, compression="infer", sep="\t")
     
-    # Step 1: Convert datetime column to datetime format and normalize time to midnight
+    # Step 1: Convert datetime column to datetime format and normalize time
     df['datetime'] = pd.to_datetime(df['datetime']).dt.normalize()
     
     # Step 2: Forward and backward fill NaN values in the category column.
@@ -15,6 +15,6 @@ def clean_timeseries_data(input_file, output_file):
     print(f"Cleaned data saved to {output_file}")
 
 
-input_file = '../../data/df_timeseries_en.tsv'
+input_file = '../../data/df_timeseries_en.tsv.gz'
 output_file = '../../data/df_timeseries_en_cleaned.tsv'
 clean_timeseries_data(input_file, output_file)
