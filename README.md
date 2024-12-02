@@ -61,7 +61,7 @@ the professionalization of digital content creation.
 
 ## Research Questions
 
-- How has the frequency and consistency of content creation evolved over time across different channel categories?
+- How has the frequency and consistency of content creation evolved over time across different channel categories? 
 
 - How has creator content strategy evolved to reflect professional monetization approaches?
 
