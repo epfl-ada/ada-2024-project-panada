@@ -1,7 +1,12 @@
-data/df_channels_en.tsv.gz
-data/df_timeseries_en.tsv.gz
-data/num_comments.tsv.gz
-data/num_comments_authors.tsv.gz
+data/df_channels_en.tsv
+data/df_timeseries_en.tsv
+data/num_comments.tsv
+data/num_comments_authors.tsv
 data/yt_metadata_helper.feather
+
+data/df_timeseries_en_cleaned.tsv
+
+Q2_koami.ipynb
+Q2_koami.docx
 
 *.DS_Store
