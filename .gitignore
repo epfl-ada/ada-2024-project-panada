@@ -6,7 +6,5 @@ data/yt_metadata_helper.feather
 
 data/df_timeseries_en_cleaned.tsv
 
-Q2_koami.ipynb
-Q2_koami.docx
 
 *.DS_Store
