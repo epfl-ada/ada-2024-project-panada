@@ -5,22 +5,11 @@ Created on Fri Dec 13 16:47:07 2024
 @author: valentinerehn
 """
 
-#def generate_clean_df_channels_en(data_path):
-
 import pandas as pd
 
 def get_cleaned_professionalization_in_description(data_path, output_csv_path, chunk_size):
-    """
-    Analyzes occurrences of keywords in video descriptions and saves results to CSV.
-    Only includes date, category, and keyword statistics.
     
-    Parameters:
-    data_path (str): Path to the JSONL.gz file
-    output_csv_path (str): Path where to save the CSV file
-    chunk_size (int): Size of chunks for processing
-    """
-    
-    # Define all terms to search
+    # Terms to search
     keywords = ['http', 'ad', 'shop', 'support']
 
     # Set up CSV writing
