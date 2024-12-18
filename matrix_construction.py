@@ -50,14 +50,14 @@ def parse_video_id(my_list_str, matrix, i) :
         if cat is not None : 
             matrix[i, index_cate[cat]] += 1
 
-print("----CERATING MATRIX---\n\n")
+print("----CREATING MATRIX---\n\n")
 i = 0
 for row in filtered_comments.itertuples():
     print(f"{i/len(filtered_comments) * 100:.2f} %%", end = "\r")
     parse_video_id(row.video_id, matrix, i)
-    matrix[i] = matrix[i]/np.sum(matrix[i])
+    matrix[i] = matrix[i]
     i+=1
-
+print(f"{i/len(filtered_comments) * 100:.2f} %%")
 
 np.save("my_matrix.npy", matrix)
 
