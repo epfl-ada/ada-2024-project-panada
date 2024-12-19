@@ -10,3 +10,7 @@ dask==latest
 seaborn==latest
 scikit-learn==latest
 pyarrow==latest
+plotly==latest
+os==latest
+json==latest
+gzip==latest
