@@ -137,7 +137,8 @@ We started by identifying and evaluating missing values across the dataset. We a
 
 - Each member can work on one research question.
 - Each team member will be responsible for making the final visualization to complete the Data Story.
-
+- The website was created and developed by Imane
+  
 ## Questions for TA (optional)
 
 
