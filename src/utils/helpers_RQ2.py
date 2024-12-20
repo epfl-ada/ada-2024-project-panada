@@ -6,12 +6,7 @@ import seaborn as sns
 import os
 import json
 import gzip
-import plotly.graph_objects as go
 from matplotlib.dates import DateFormatter, YearLocator
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-import plotly.express as px
-import plotly.colors
 from scipy import stats
 
 def create_color_mapping(df):

@@ -12,6 +12,6 @@ def remove_missing_comments(input_file, output_file):
     print(f"Cleaned data saved to {output_file}")
 
 # Usage
-input_file = '../../data/num_comments.tsv.gz'
-output_file = '../../data/num_comments_cleaned.tsv'
-remove_missing_comments(input_file, output_file)
+#input_file = '../../data/num_comments.tsv.gz'
+#output_file = '../../data/num_comments_cleaned.tsv'
+#remove_missing_comments(input_file, output_file)

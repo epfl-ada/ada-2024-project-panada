@@ -15,6 +15,6 @@ def clean_timeseries_data(input_file, output_file):
     print(f"Cleaned data saved to {output_file}")
 
 
-input_file = '../../data/df_timeseries_en.tsv.gz'
-output_file = '../../data/df_timeseries_en_cleaned.tsv'
-clean_timeseries_data(input_file, output_file)
+#input_file = '../../data/df_timeseries_en.tsv.gz'
+#output_file = '../../data/df_timeseries_en_cleaned.tsv'
+#clean_timeseries_data(input_file, output_file)
