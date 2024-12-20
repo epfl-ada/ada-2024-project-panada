@@ -139,23 +139,91 @@ Methods:
      - Bar plots for upload frequency by category and year.
      - Heatmaps for correlation matrices.
 
-### Research Question 3: How has creator content strategy evolved to reflect professional monetization approaches?
-1) Data sources : 
-- Time series data (`df_timeseries_en.tsv.gz`) tracking metrics like views, subscribers, upload patterns, and activity.
-- Channel metadata containing monetization information extracted from video descriptions
+### Research Question 2: Which content categories drive YouTube's professionalization, and how have their practices evolved?
 
-2) Monetization Categories:
-We used the types of revenue streams obtained by analyzing keywords in video descriptions: Affiliate, Membership, Merchandise, sponsored, etc....
+NB: This part was initially computed using Plotly, but the overly heavy plots generated made the results.ipynb submission complex. In the notebook, the plots are displayed using Matplotlib or Seaborn, but the interactive displays have been preserved in the website.
 
-Data pre-processing:
-1) We cleaned the df_timeseries_en.tsv.gz by removing NaNs and converted the datetime into a suitable date format.
-2) We merged the monetization informations extracted from the videos metadata with the channels dataset. The merging script can be found in `src/scripts/generate_channel_data_with_monetization.ipynb`
+Datasets used in this research question:
+1) yt_metadata_en.jsonl.gz: A large dataset of ~14 GB containing information from the YouNiverse videos dataset, including category, channel ID, crawl date, description, dislike count, display ID, duration, like count, tags, title, upload date, and view count. This dataset was used to analyze video descriptions while considering their upload date and category.  
 
-Analysis :
-- Production Analysis: We compared weekly video production 52 weeks before and after monetization and used a vertical line to mark the monetization date. We tracked average weekly change in video count with 95% confidence intervals
-- Content Duration Analysis: We tracked how video length changed before and after monetization and analyzed whether creators invested in longer, more in-depth content
-- Subscriber-to-View Ratio Analysis: We calculated how effectively channels converted viewers to subscribers and normalized to show subscribers gained per 1,000 views. We tracked changes in this ratio around monetization.
-- Cross-Sectional Comparison: We compared different monetization strategies (affiliate, membership, merchandise, etc.) and analyzed how each strategy influenced metrics like upload frequency, views, subscribers, and video duration
+2) df_channels_en.tsv.gz: This dataset contains information on 136,470 English-speaking video channels. It includes the category, join date, channel ID, and characteristics such as the subscriber rank.  
+
+3) youtube_monetization_api.csv: An additional dataset obtained from the YouTube API, indicating whether videos use merchandise, affiliation, or sponsorship. These details are linked through the channel ID.  
+
+Data processing:
+
+1) generate_df_channel_monetization.py:  
+   - Removes NaN values or unexpected duplicate lines if present.  
+   - Extracts only the columns of interest: the category and channel ID.  
+
+2) generate_clean_professionalization_in_description.py:  
+   - Processes the large JSON file in chunks to extract relevant elements from video descriptions.  
+   - Extracts the video upload dates and categories.  
+   - Skips rows with NaN values in any of the relevant columns.  
+
+3) generate_clean_df_cross_analysis.py:  
+   - Similar to the previous script, but instead extracts the video ID rather than the upload date.  
+   - Merges the extracted data with information from the API dataset using the channel ID as a key.  
+   - Groups all columns (e.g., words of interest in descriptions, monetization usage from the API) by categories.  
+   - Provides a count of values of interest for each category in an additional file containing the size of each group before aggregating everything to generate accurate plots later.  
+
+/!\ Caution /!\
+Chunks are set to 20,000 in scripts (2) and (3), but should be adjusted based on RAM availability:  
+- **For 8 GB RAM**: Set `chunk_size` to around 10,000–20,000 rows.  
+- **For 16 GB RAM**: Set `chunk_size` to around 20,000–40,000 rows.  
+- **For 32 GB RAM**: Set `chunk_size` to around 40,000–80,000 rows.  
+
+
+Methods:
+1) Category Distribution Analysis:
+   - Used pandas for data aggregation and counting category frequencies
+   - Implemented color mapping function (`create_color_mapping`) to maintain consistent category colors across visualizations
+   - Calculated percentages of each category's representation in the dataset
+
+2) Temporal Evolution Analysis:
+   - Created time series analysis of professionalization markers in video descriptions (http, ad, shop, support)
+   - Applied rolling means (30-day window) to smooth daily fluctuations
+   - Calculated daily percentages of videos containing each term
+   - Separated analysis by category to track evolution patterns
+
+3) Cross-Analysis and Correlation:
+   - Implemented weighted linear regression to account for category size differences
+   - Used log-log representation for handling large data variances
+   - Calculated correlation coefficients between different monetization methods
+   - Applied statistical significance testing (p-values) to validate relationships
+
+Visualizations:
+1) Category Distribution:
+   - Bar plot showing category proportions with percentage labels
+   - Pie charts displaying monetization method shares by category
+   - Stacked histograms showing frequency distributions of monetization methods
+   - Used consistent color scheme across all visualizations for easy category identification
+
+2) Temporal Evolution:
+   - Line plots showing trends over time with confidence intervals
+   - Grid layout (2x2) comparing different professionalization markers
+   - Dual visualization approach:
+      - Overall trends (with rolling averages)
+      - Category-specific evolution patterns
+       
+3) Correlation Analysis:
+   - Bubble plots showing relationships between variables
+   - Size of bubbles representing category weight
+   - Heat maps displaying correlation coefficients between:
+      - Different monetization methods
+      - Different professionalization markers in descriptions
+      - Log-scale scatter plots with regression lines
+
+Appendices:
+A.1 Correlation Heatmaps:
+- Heatmap 1: Correlation between monetization methods (merchandise, affiliate, and sponsorship)
+- Heatmap 2: Correlation between word usage in descriptions (URLs, Ad, Shop, Support)
+
+A.2 Distribution Plots:
+- Four-panel grid showing the distribution of term occurrences by year (2005-2019)
+- Terms analyzed: 'http', 'ad', 'shop', 'support'
+- Log-scale representation with average trend line in red
+
 
 ### Research Question 4: How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
 
