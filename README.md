@@ -37,6 +37,9 @@ cd <project repo>
 pip install -r pip_requirements.txt
 ```
 
+## 🌐 Web Presence
+Explore our complete data story on our [website](https://webpanada.vercel.app/).
+
 ### Dataset Setup
 Download the dataset from [Zenodo](https://zenodo.org/records/4650046) and place it in the `/data` folder.
 
@@ -169,9 +172,6 @@ To complement this API data, we conducted additional analysis of revenue streams
 - Merchandise : "merchandise," "merch," "shop," "store," "tshirt," "t-shirt," "hoodie," "apparel," "limited edition"
 - Sponsorship : "sponsor," "sponsored," "partnership," "partner," "paid promotion," "#ad," "#sponsored," "promotion"
 - Affiliate Marketing : "affiliate," "amazon link," "discount code," "promo code," "referral," "use code," "commission"
-
-## 🌐 Web Presence
-Explore our complete data story on our [website](https://webpanada.vercel.app/).
 
 ## 👥 Team & Responsibilities
 - **Imane**: Website development, data story creation
