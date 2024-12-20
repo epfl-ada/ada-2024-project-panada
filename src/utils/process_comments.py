@@ -1,43 +1,39 @@
+
+################################################################
+# This scripts reads the youtube_comments.tsv.gz 77GB file that contains auhtor of comments 
+# and the id of the video they commented. It keeps only the authors who posted more than 100 comments
+# and writes everything in a new csv file named filtered_comments.csv
+################################################################
+
 import pandas as pd
 import warnings
 import pandas as pd
 
-# Ignorer tous les warnings
+
+# Ignores the warnings
 warnings.filterwarnings("ignore")
 
 
-def filter_df(df, N) : 
-
-    # Créer une colonne 'group' qui marque les groupes d'auteurs consécutifs
+def filter_df(df, N):
+    """
+    The goal of this function is to keep only tha authors who wrote more than N comments n the df dataframe.
+    Returns a new dataframe filtered from the df dataframe. 
+    """
     df['group'] = (df['author'] != df['author'].shift()).cumsum()
-
-    # Compter la taille de chaque groupe
-    group_sizes = df.groupby('group').size()
-
-    # Sélectionner les groupes qui ont une taille supérieure à N
-    valid_groups = group_sizes[group_sizes > N].index
-
-    # Filtrer le DataFrame pour garder uniquement les lignes des groupes valides
-    filtered_df = df[df['group'].isin(valid_groups)]
-    result = filtered_df.groupby('author')['video_id'].apply(lambda x: ', '.join(x)).reset_index()
-
+    group_sizes = df.groupby('group')['author'].transform('size')
+    df_filtered = df[group_sizes > N]
+    result = df_filtered.groupby('author')['video_id'].apply(lambda x: ', '.join(x)).reset_index()
     return result
-
 
 
 def main():
     print("-----START-----")
-    output_file = "filtered_comments.csv"  # Nom du fichier de sortie
-    N = 50
-    n = 1000000
-    i = 0
-
-    # Initialiser une première écriture pour inclure les en-têtes
-    first_write = True
-
+    N = 100    # Minimum number of comments an author has to post to keep him
+    n = 100_000_000    # Number of lines we read at each step
+    i = 0   # Counter
+    output_file = "filtered_comments" + ".csv"  # Creates a new csv file for each chunks
     while True: 
         try:
-            # Lire un chunk de données
             df_sample_comments = pd.read_csv(
                 "youtube_comments.tsv.gz",
                 compression="infer",
@@ -45,36 +41,31 @@ def main():
                 nrows=n, 
                 skiprows=range(1, n * i),
                 usecols=[0, 1],
-                names=["author", "video_id"],  # Nommer les colonnes
-                header=0 if i == 0 else None  # Inclure l'en-tête seulement pour le premier chunk
-            )
+                names=["author", "video_id"],  
+                header=0 if i == 0 else None  
+            )  # Reads the csv file containing the comments 
 
-            if df_sample_comments.empty:  # Arrêter la boucle si le chunk est vide
+            if df_sample_comments.empty:  # Stops the loop if the chunk is empty
                 break
 
+            filtered_comments_df = filter_df(df_sample_comments, N)  # Filters the data to keep only the relevant authors
 
-            # Filtrer les données
-            filtered_comments_df = filter_df(df_sample_comments, N)
-
-            # Écrire les données filtrées dans le fichier CSV
-            filtered_comments_df.to_csv(
-                output_file, 
-                mode='w' if first_write else 'a',  # 'w' pour écraser au début, 'a' pour ajouter ensuite
-                index=False, 
-                header=first_write  # Inclure l'en-tête seulement lors de la première écriture
-            )
-
-            first_write = False  # Les écritures suivantes n'incluront pas l'en-tête
-
-            # Afficher la progression
-            print(f"{(i * n / 7e9) * 100:.2f} %", end='\r')
-
+            filtered_comments_df.to_csv( # Writes the data to the csv file 
+            output_file, 
+            mode='a' , 
+            index=False, 
+            header=None  
+        )
             i += 1
+
+            # Shows the progression
+            print(f"{(i * n / 8e9) * 100:.2f} %", end='\r')
 
         except StopIteration:
             break
+    
 
-    print("\nTraitement terminé !")
+    print("\n---- Finished! ----")
 
 
 if __name__ == "__main__":
