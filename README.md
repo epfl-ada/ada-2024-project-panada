@@ -67,9 +67,9 @@ You can find the data story of our project on our [website](https://webpanada.ve
 
 - How has the frequency and consistency of content creation evolved over time across different channel categories? 
 
-- How has creator content strategy evolved to reflect professional monetization approaches?
-
 - Which categories led YouTube's professionalization, and how did professional practices spread?
+
+- How has creator content strategy evolved to reflect professional monetization approaches?
 
 - How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies?
 
@@ -82,7 +82,7 @@ The YouNiverse database, while extensive, lacks crucial economic data that's ess
 - has_sponsorships: Shows content sponsored by companies/brands in exchange for product promotion
 - has_merchandise: Reflects use of merchant platforms for selling branded goods to fans
 
-While YouTube's API typically provides detailed monetization data through various indicators (e.g., 'affiliate link', 'ref=', 'partner link', 'sponsored by', 'merch', etc.), we consolidated these into three main categories to work within the API's daily request limitations.
+While YouTube's API typically provides detailed monetization data through various indicators (e.g.: affiliate link, partner link, sponsored, merch), we consolidated these into three main categories to work within the API's daily request limitations.
 To complement this API data, we conducted additional analysis of revenue streams by extracting monetization indicators from video descriptions in the yt_metadata_en.jsonl.gz dataset. Our keyword detection system identified five distinct monetization categories:
 - Membership : "subscription," "member," "join button," "channel member," "membership," "premium content"
 - Crowdfunding : "patreon," "ko-fi," "donation," "support us," "buy me a coffee," "gofundme," "paypal," "tip jar," "patron"
@@ -139,7 +139,7 @@ Methods:
      - Bar plots for upload frequency by category and year.
      - Heatmaps for correlation matrices.
 
-### Research Question 3: Which content categories drive YouTube's professionalization, and how have their practices evolved?
+### Research Question 2: Which content categories drive YouTube's professionalization, and how have their practices evolved?
 
 NB: This part was initially computed using Plotly, but the overly heavy plots generated made the results.ipynb submission complex. In the notebook, the plots are displayed using Matplotlib or Seaborn, but the interactive displays have been preserved in the website.
 
@@ -225,6 +225,24 @@ A.2 Distribution Plots:
 - Terms analyzed: 'http', 'ad', 'shop', 'support'
 - Log-scale representation with average trend line in red
 
+### Research Question 3: How has creator content strategy evolved to reflect professional monetization approaches?
+1) Data sources : 
+- Time series data (`df_timeseries_en.tsv.gz`) tracking metrics like views, subscribers, upload patterns, and activity.
+- Channel metadata containing monetization information extracted from video descriptions
+
+2) Monetization Categories:
+We used the types of revenue streams obtained by analyzing keywords in video descriptions: Affiliate, Membership, Merchandise, sponsored, etc....
+
+Data processing:
+1) We cleaned the df_timeseries_en.tsv.gz by removing NaNs and converted the datetime into a suitable date format.
+2) We merged the monetization informations extracted from the videos metadata with the channels dataset. The merging script can be found in `src/scripts/generate_channel_data_with_monetization.ipynb`
+
+Analysis :
+- Production Analysis: We compared weekly video production 52 weeks before and after monetization and used a vertical line to mark the monetization date. We tracked average weekly change in video count with 95% confidence intervals
+- Content Duration Analysis: We tracked how video length changed before and after monetization and analyzed whether creators invested in longer, more in-depth content
+- Subscriber-to-View Ratio Analysis: We calculated how effectively channels converted viewers to subscribers and normalized to show subscribers gained per 1,000 views. We tracked changes in this ratio around monetization.
+- Cross-Sectional Comparison: We compared different monetization strategies (affiliate, membership, merchandise, etc.) and analyzed how each strategy influenced metrics like upload frequency, views, subscribers, and video duration
+
 
 ### Research Question 4: How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
 
@@ -244,7 +262,7 @@ Methods :
 1) Before computing whatever with the matrix $A$ described before, we firstly divide each row by it's $l_1$ norm. For each row i :
 ![Équation LaTeX](https://latex.codecogs.com/svg.image?&space;A_i\leftarrow&space;A_i/||A_i||_{l_1}). The idea behing this step is to have for each row of the matrix (and thus for each author of comments) a distribution of the themes the author commented.
 
-2) At this step, we know have a matrix A such that ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{ij}=) distribution of comments written by the author i under videos belonging to the category j. The goal is now to establish a notion of distance between the categories based on this matrix. Let's note ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{:i}) the i'th column of the matrix A, we describe the distance between the category i and the category j as : ![ÉquationLaTeX](https://latex.codecogs.com/svg.image?dist(cat_i,cat_j)=1-\frac{A_{:i}\cdot&space;A_{j:}}{||A_{:i}||||A_{:j}||}). We can also talk about a similarity metric between two categories wich is simply 1 - distance. 
+2) At this step, we have a matrix A such that ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{ij}=) distribution of comments written by the author i under videos belonging to the category j. The goal is now to establish a notion of distance between the categories based on this matrix. Let's note ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{:i}) the i'th column of the matrix A, we describe the distance between the category i and the category j as : ![ÉquationLaTeX](https://latex.codecogs.com/svg.image?dist(cat_i,cat_j)=1-\frac{A_{:i}\cdot&space;A_{j:}}{||A_{:i}||||A_{:j}||}). We can also talk about a similarity metric between two categories wich is simply 1 - distance. 
 
 3) Now that we have distances between categories, we can establish clusters of categories. We use a simple hierarchy clustering based on the ward metric to create the clusters.
 
