@@ -215,6 +215,7 @@ Visualizations:
       - Log-scale scatter plots with regression lines
 
 Appendices:
+
 A.1 Correlation Heatmaps:
 - Heatmap 1: Correlation between monetization methods (merchandise, affiliate, and sponsorship)
 - Heatmap 2: Correlation between word usage in descriptions (URLs, Ad, Shop, Support)
