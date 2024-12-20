@@ -102,7 +102,7 @@ Data processing :
 
 Methods : 
 1) Before computing whatever with the matrix $A$ described before, we firstly divide each row by it's $l_1$ norm. For each row i :
-![Équation LaTeX](https://latex.codecogs.com/svg.image?&space;A_i\leftarrowA_i\||A_i||_{l_1}}). The idea behing this step is to have for each row of the matrix (and thus for each author of comments) a distribution of the themes the author commented. 
+![Équation LaTeX](https://latex.codecogs.com/svg.image?&space;A_i\leftarrow&space;A_i/||A_i||_{l_1}). The idea behing this step is to have for each row of the matrix (and thus for each author of comments) a distribution of the themes the author commented. 
 
 ## Data Cleaning Pipeline
 
