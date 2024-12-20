@@ -104,7 +104,14 @@ Methods :
 1) Before computing whatever with the matrix $A$ described before, we firstly divide each row by it's $l_1$ norm. For each row i :
 ![Équation LaTeX](https://latex.codecogs.com/svg.image?&space;A_i\leftarrow&space;A_i/||A_i||_{l_1}). The idea behing this step is to have for each row of the matrix (and thus for each author of comments) a distribution of the themes the author commented.
 
-2) At this step, we know have a matrix A such that ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{ij}=) distribution of comments written by the author i under videos belonging to the category j. The goal is now to establish a notion of distance between the categories based on this matrix. Let's note ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{:i}) the i'th column of the matrix A, we describe the distance between the category i and the category j as : ![ÉquationLaTeX](https://latex.codecogs.com/svg.image?dist(cat_i,cat_j)=1-\frac{A_{:i}\cdot&space;A_{j:}}{||A_{:i}||||A_{:j}||})
+2) At this step, we know have a matrix A such that ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{ij}=) distribution of comments written by the author i under videos belonging to the category j. The goal is now to establish a notion of distance between the categories based on this matrix. Let's note ![Équation LaTeX](https://latex.codecogs.com/svg.image?A_{:i}) the i'th column of the matrix A, we describe the distance between the category i and the category j as : ![ÉquationLaTeX](https://latex.codecogs.com/svg.image?dist(cat_i,cat_j)=1-\frac{A_{:i}\cdot&space;A_{j:}}{||A_{:i}||||A_{:j}||}). We can also talk about a similarity metric between two categories wich is simply 1 - distance. 
+
+3) Now that we have distances between categories, we can establish clusters of categories. We use a simple hierarchy clustering based on the ward metric to create the clusters.
+
+Visualization : 
+1) To visualize distances between the categories, we use a heatmap animation done with plotly.
+2) We also visualize the similarity metric using a network animation. The nodes are the categories and the links between two categories are proporitionnaly wider with the similarity between these.
+3) Finally, we use a dendogramm to visualize the clusters. We can easily see low-level, mid-level or high level clusters. 
 
 
 
