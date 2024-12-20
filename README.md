@@ -86,7 +86,7 @@ Key considerations include:
 
 ## Methods
 
-# Research Question 4 : How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
+### Research Question 4 : How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
 
 Datasets used in this research question : 
 1) youtube_comments.tsv.gz : contains around 8.6 B comments. Each rows corresponds to a comment. It contains an anonymized user id, a video id, the number of replies the comment received, and the number of likes the comment received.
