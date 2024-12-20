@@ -77,12 +77,18 @@ In the Milestone 2, we had 5 research questions but we decided to remove one of 
 
 ## Proposed additional datasets
 
-The YouNiverse database is extensive but lacks economic data, a key factor in understanding professionalization. Revenue sources like AdSense are relevant but limited by data availability, as Alphabet has only published separate figures since 2019. Additional revenue streams, such as e-books, online courses, crowdfunding, and brand partnerships, lack comprehensive data across regions and stakeholders. Peripheral economies, like gaming and e-sports, offer potential insights but face similar access and cost barriers. For instance, e-sports data and Twitch metrics are costly and restricted, while video game developer revenues may introduce biases.
+The YouNiverse database, while extensive, lacks crucial economic data that's essential for understanding creator professionalization. To address this gap, we augmented the dataset with monetization indicators obtained through the YouTube API. This additional dataset includes three key monetization columns:
+- has_affiliate: Indicates affiliation with third-party companies
+- has_sponsorships: Shows content sponsored by companies/brands in exchange for product promotion
+- has_merchandise: Reflects use of merchant platforms for selling branded goods to fans
 
-Key considerations include:
-- Primary YouTube revenue sources: AdSense, sponsorships, merchandise, crowdfunding, online courses, and fan support platforms.
-- Viewer demographics: ~25% of YouTube viewers are from India, ~10% from the U.S.
-- Dominant content: Indian entertainment, children’s content, and music lead YouTube charts.
+While YouTube's API typically provides detailed monetization data through various indicators (e.g., 'affiliate link', 'ref=', 'partner link', 'sponsored by', 'merch', etc.), we consolidated these into three main categories to work within the API's daily request limitations.
+To complement this API data, we conducted additional analysis of revenue streams by extracting monetization indicators from video descriptions in the yt_metadata_en.jsonl.gz dataset. Our keyword detection system identified five distinct monetization categories:
+- Membership : "subscription," "member," "join button," "channel member," "membership," "premium content"
+- Crowdfunding : "patreon," "ko-fi," "donation," "support us," "buy me a coffee," "gofundme," "paypal," "tip jar," "patron"
+- Merchandise : "merchandise," "merch," "shop," "store," "tshirt," "t-shirt," "hoodie," "apparel," "limited edition"
+- Sponsorship : "sponsor," "sponsored," "partnership," "partner," "paid promotion," "#ad," "#sponsored," "promotion"
+- Affiliate Marketing : "affiliate," "amazon link," "discount code," "promo code," "referral," "use code," "commission"
 
 ## Methods
 
@@ -133,6 +139,23 @@ Methods:
      - Bar plots for upload frequency by category and year.
      - Heatmaps for correlation matrices.
 
+### Research Question 3: How has creator content strategy evolved to reflect professional monetization approaches?
+1) Data sources : 
+- Time series data (`df_timeseries_en.tsv.gz`) tracking metrics like views, subscribers, upload patterns, and activity.
+- Channel metadata containing monetization information extracted from video descriptions
+
+2) Monetization Categories:
+We used the types of revenue streams obtained by analyzing keywords in video descriptions: Affiliate, Membership, Merchandise, sponsored, etc....
+
+Data pre-processing:
+1) We cleaned the df_timeseries_en.tsv.gz by removing NaNs and converted the datetime into a suitable date format.
+2) We merged the monetization informations extracted from the videos metadata with the channels dataset. The merging script can be found in `src/scripts/generate_channel_data_with_monetization.ipynb`
+
+Analysis :
+- Production Analysis: We compared weekly video production 52 weeks before and after monetization and used a vertical line to mark the monetization date. We tracked average weekly change in video count with 95% confidence intervals
+- Content Duration Analysis: We tracked how video length changed before and after monetization and analyzed whether creators invested in longer, more in-depth content
+- Subscriber-to-View Ratio Analysis: We calculated how effectively channels converted viewers to subscribers and normalized to show subscribers gained per 1,000 views. We tracked changes in this ratio around monetization.
+- Cross-Sectional Comparison: We compared different monetization strategies (affiliate, membership, merchandise, etc.) and analyzed how each strategy influenced metrics like upload frequency, views, subscribers, and video duration
 
 ### Research Question 4: How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
 
