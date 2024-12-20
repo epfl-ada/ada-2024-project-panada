@@ -101,7 +101,8 @@ Data processing :
 3) Using the "matrix_contruction.py" file, we open the "filtered_comments_i.csv" and "yt_metadata.csv" files and we create based on them a matrix. Each row of the matrix represents an author and each column a category. Noting the matrix $A$, then $A_{ij}$ would be the number of comments the author i wrote unders videos belonging to the category j. The matrix is then stored in the "my_matrix.npy" file.
 
 Methods : 
-1) Before computing whatever with the matrix $A$ described before, we firstly divide each row by it's $l_1$ norm. For each row i : ![Équation LaTeX]([https://latex.codecogs.com/png.latex?E%3Dmc%5E2](https://latex.codecogs.com/svg.image?&space;A_i\leftarrow\frac{A_i}{||A_i||_{l_1}}))
+1) Before computing whatever with the matrix $A$ described before, we firstly divide each row by it's $l_1$ norm. For each row i :
+![Équation LaTeX](https://latex.codecogs.com/svg.image?&space;A_i\leftarrow\frac{A_i}{||A_i||_{l_1}})
 The idea behing this step is to have for each row of the matrix (and thus for each author of comments) a distribution of the themes the author commented. 
 
 ## Data Cleaning Pipeline
