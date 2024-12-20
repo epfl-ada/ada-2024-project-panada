@@ -86,30 +86,26 @@ Key considerations include:
 
 ## Methods
 
-#### 1. Growth Trends Analysis
+## Research Question 4 : How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
 
-- **Objective**: Quantify growth in content creation and audience size to reflect professionalization.
-- **Approach**: Analyze cumulative channel and video counts, and use time-series models to track subscriber and view trends over time.
+Datasets used in this research question : 
+1) youtube_comments.tsv.gz : contains around 8.6 B comments. Each rows corresponds to a comment. It contains an anonymized user id, a video id, the number of replies the comment received, and the number of likes the comment received.
+  
+2) yt_metadata_en.jsonl.gz : contains metadata data related to ~73M videos. Each rows correponds to a video. It contains the category of the video, the id of the channel related to the video, the crawl date, the description written by the creator under the video, the number of dislikes, the id of the video, the duration, the number of likes, the tags, the title, the upload date and the view count
 
-#### 2. Content Production Consistency
+Data processing : 
+1) script process_comments.py : uses the "youtube_comments.tsv.gz" file. We only consider authors who wrote more than 100 comments in total and we keep a list containing the id's of the the videos under which each author commented. We split the "process_comments.py" file in chunks of 100.000.000 lines each and we store each of these chunks in a file named "filtered_comments.csv".
 
-- **Objective**: Assess adoption of regular upload practices by creators.
-- **Approach**: Evaluate posting frequency, analyze variance in upload schedules, and apply rolling averages to identify trends in consistent content production.
+2) process_metadata.py : we read the "yt_metadata_en.jsonl.gz" file. For each row, we only keep the id of the video and the category it belongs to. We store the final data in the "yt_metadata.csv" file.
 
-#### 3. Engagement Trends
+3) Using the "matrix_contruction.py" file, we open the "filtered_comments_i.csv" and "yt_metadata.csv" files and we create based on them a matrix. Each row of the matrix represents an author and each column a category. Noting the matrix $A$, then $A_{ij}$ would be the number of comments the author i wrote unders videos belonging to the category j. The matrix is then stored in the "my_matrix.npy" file.
 
-- **Objective**: Measure audience engagement as an indicator of professional interaction.
-- **Approach**: Track comment volume and unique commenters, and correlate engagement metrics (e.g., likes, comments) with subscriber growth.
-
-#### 4. Category Growth and Strategy Shifts
-
-- **Objective**: Identify leading categories in professionalization and strategy evolution.
-- **Approach**: Analyze growth by category, evaluate video quality and length, and cluster channels based on content production characteristics.
-
-#### 5. Algorithm and Policy Impacts
-
-- **Objective**: Explore how YouTube policy and algorithm changes influenced professionalization.
-- **Approach**: Conduct event studies and compare pre- and post-change metrics (e.g., views, subscriber growth).
+Methods : 
+1) Before computing whatever with the matrix $A$ described before, we firstly divide each row by it's $l_1$ norm. For each row i : 
+$$ 
+A_i \leftarrow \frac{A_i}{||A_i||_{l_1}}
+$$
+The idea behing this step is to have for each row of the matrix (and thus for each author of comments) a distribution of the themes the author commented. 
 
 ## Data Cleaning Pipeline
 
