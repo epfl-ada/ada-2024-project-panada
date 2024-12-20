@@ -6,7 +6,12 @@ import seaborn as sns
 import os
 import json
 import gzip
+import plotly.graph_objects as go
 from matplotlib.dates import DateFormatter, YearLocator
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.colors
 from scipy import stats
 
 def create_color_mapping(df):
@@ -428,3 +433,91 @@ def analyze_all_regressions(df, metrics_config):
         
         for x_col in x_cols:
             stats = print_regression_stats(df, x_col, metric)
+
+
+def plot_time_series_grid_cat(df_analysis, terms=['http', 'ad', 'shop', 'support'], color_scale='viridis'):
+    # Convert to datetime
+    df_analysis['upload_date'] = pd.to_datetime(df_analysis['upload_date'])
+    
+    # Filter data up to September 2019 as justificated in RQ1
+    end_date = pd.to_datetime('2019-09-30')
+    df_filtered = df_analysis[df_analysis['upload_date'] <= end_date]
+    
+    # Get color mapping
+    color_map, colors = create_color_mapping(df_filtered, color_scale)
+    
+    # Get categories in their frequency-ordered sequence
+    categories = list(color_map.keys())
+    
+    # Create figure
+    fig = make_subplots(
+        rows=2, cols=2,
+        subplot_titles=[f"Videos with '{term}' by Category" for term in terms],
+        vertical_spacing=0.12  # Increase spacing to make room for legend
+    )
+    
+    for idx, term in enumerate(terms):
+        # Calculate row and column position
+        row = (idx // 2) + 1
+        col = (idx % 2) + 1
+        
+        # Plot line for each category in the order of frequency
+        for category in categories:
+            # Filter for category
+            df_cat = df_filtered[df_filtered['category_cc'] == category]
+            
+            # Calculate daily percentages for this category
+            daily_total = df_cat.groupby('upload_date').size()
+            daily_with_term = df_cat[df_cat[f'has_{term}'] == 1].groupby('upload_date').size()
+            daily_percentage = (daily_with_term / daily_total * 100)
+            
+            # Calculate rolling mean (30-day window)
+            rolling_mean = daily_percentage.rolling(window=30, min_periods=1).mean()
+            
+            # Add line for this category
+            fig.add_trace(
+                go.Scatter(
+                    x=rolling_mean.index,
+                    y=rolling_mean.values,
+                    mode='lines',
+                    name=category,
+                    line=dict(color=color_map[category]),
+                    showlegend=(idx == 0),  # Show legend only for first subplot
+                    hovertemplate=f'{category}<br>Date: %{{x}}<br>30-day Avg: %{{y:.1f}}%<extra></extra>'
+                ),
+                row=row, col=col
+            )
+        
+        # Update axes for this subplot
+        fig.update_xaxes(
+            title_text="Date",
+            row=row, col=col,
+            tickangle=45,
+            range=[df_filtered['upload_date'].min(), end_date]  # Set x-axis range
+        )
+        fig.update_yaxes(
+            title_text="Percentage",
+            range=[0, 100],
+            row=row, col=col
+        )
+    
+    # Update layout with legend at the bottom
+    fig.update_layout(
+        height=900, 
+        width=1200,
+        title_text="Percentage of Videos Containing Terms Over Time by Category (Through September 2019)",
+        title_y=0.95,
+        showlegend=True,
+        legend=dict(
+            orientation="h",    
+            yanchor="top",     
+            y=-0.15,         
+            xanchor="center", 
+            x=0.5,
+            font=dict(size=10) 
+        ),
+        margin=dict(b=100),   
+        hovermode='x unified'
+    )
+    
+    return fig
