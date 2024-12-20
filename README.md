@@ -86,7 +86,55 @@ Key considerations include:
 
 ## Methods
 
-### Research Question 4 : How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
+### Research Question 1: How has the frequency and consistency of content creation evolved over time across different channel categories?
+
+Datasets used in this research question:
+
+- yt_metada_helper.feather: contains metadata data related to ~73M videos between 2005 and 2019 from ~137k channels. Each row corresponds to a video. It contains its category, its channel, its uploaded date, its number of likes, views and dislikes and its title.
+
+- df_channels_en.tsv.gz: contains data related to channels. It aggregates both basic stats from channels obtained from ```channelcrawler.com```, as well as rankings obtained from ```socialblade.com```. Each row corresponds to a channel where we can find its category, the date when he joined YouTube, its name, its number of subscribers and videos.
+
+
+Data processing:
+
+- We removed the rows containing NaN values for the two files and we then merged the two datasets using channel IDs as the key. We grouped the data by channel IDs to enable efficient analysis of video and channel metadata together.
+
+Methods:
+
+1. **Trend Analysis**:
+   - **Upload Frequency Over Time**:
+     - Aggregated video upload counts per year and per category to identify growth trends.
+     - Generated line plots to observe how upload frequencies evolved for each category between 2006 and 2018.
+
+2. **Consistency Analysis**:
+   - **Active Months Definition**:
+     - Defined an active month as a month with at least 2 video uploads.
+   - **Channel-Level Consistency**:
+     - Calculated the proportion of active months for each channel relative to the total months in the dataset.
+     - Aggregated these proportions to calculate the average consistency for each category.
+   - **Category-Level Consistency**:
+     - Generated time-series line plots to track the evolution of consistency across categories.
+
+3. **Long-Tail Distribution Analysis**:
+   - **Cumulative Distribution**:
+     - Analyzed the contribution of channels to total uploads and views within each category.
+     - Plotted cumulative distributions to reveal that a small proportion of channels generate the majority of views.
+
+4. **Correlation Analysis**:
+   - Computed correlation matrices between:
+     - Engagement metrics (views, likes, dislikes, and subscribers).
+     - Consistency metrics (proportion of active months and total active months).
+   - Visualized correlations using heatmaps to identify relationships between consistency and engagement.
+
+5. **Visualization**:
+   - Generated multiple plots to support the analysis:
+     - Line plots for trends in upload frequency and consistency.
+     - Box plots for consistency distribution.
+     - Bar plots for upload frequency by category and year.
+     - Heatmaps for correlation matrices.
+
+
+### Research Question 4: How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies ? 
 
 Datasets used in this research question : 
 1) youtube_comments.tsv.gz : contains around 8.6 B comments. Each rows corresponds to a comment. It contains an anonymized user id, a video id, the number of replies the comment received, and the number of likes the comment received.
