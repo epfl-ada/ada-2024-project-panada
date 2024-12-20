@@ -71,7 +71,7 @@ You can find the data story of our project on our [website](https://webpanada.ve
 
 - Which categories led YouTube's professionalization, and how did professional practices spread?
 
-- How has community management evolved from casual interaction to professional engagement strategies?
+- How can we help content creators to evolve their community management evolved from casual interaction to professional engagement strategies?
 
 In the Milestone 2, we had 5 research questions but we decided to remove one of them since it was highly correlated to another research question we already had.
 
@@ -136,6 +136,6 @@ Our data cleaning process aims to ensure a good quality input for our analysis b
 
 - Antoine: Problem formulation, analyzation and plotting graphs for the first research question, merging final results in the result notebook, wrote the README.
 
-- Adam: Analyzation and plotting graphs of the the fourth research question, merging final results in the result notebook.
+- Adam: Analyzation and plotting graphs of the the fourth research question about how we can help the content creator to enhance its community management. Merging final results in the result notebook.
 
 - Valentine: Analyzation and plotting graphs of the third research question, merging final results in the result notebook.
