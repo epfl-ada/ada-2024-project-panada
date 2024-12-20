@@ -2,5 +2,6 @@ data/
 test/
 
 merged_notebook.ipynb
+requirements.txt
 
 *.DS_Store

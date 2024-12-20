@@ -40,7 +40,7 @@ pip install -r pip_requirements.txt
 ### Dataset Setup
 Download the dataset from [Zenodo](https://zenodo.org/records/4650046) and place it in the `/data` folder.
 
-Please download the additional datasets from [additional_datasets](https://drive.google.com/drive/folders/1q0pH2XHFk28kmkeQODJGFlvE8cmRkBDj?usp=drive_link) and place these files in the `data/` directory before running the analysis
+Please download the additional datasets from [additional_datasets](https://drive.google.com/drive/folders/1q0pH2XHFk28kmkeQODJGFlvE8cmRkBDj?usp=drive_link) and place these files in a folder `data/` directory before running the analysis
 
 ## 📁 Project Structure
 ```
@@ -53,7 +53,7 @@ project_root/
 │   └── utils/               # Helper functions
 ├── results.ipynb             # Main results notebook
 ├── .gitignore               # Git ignore file
-├── requirements.txt          # Python dependencies
+├── pip_requirements.txt     # Python dependencies
 └── README.md                # Project documentation
 ```
 
