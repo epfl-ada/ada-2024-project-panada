@@ -139,7 +139,7 @@ Methods:
      - Bar plots for upload frequency by category and year.
      - Heatmaps for correlation matrices.
 
-### Research Question 2: Which content categories drive YouTube's professionalization, and how have their practices evolved?
+### Research Question 3: Which content categories drive YouTube's professionalization, and how have their practices evolved?
 
 NB: This part was initially computed using Plotly, but the overly heavy plots generated made the results.ipynb submission complex. In the notebook, the plots are displayed using Matplotlib or Seaborn, but the interactive displays have been preserved in the website.
 
