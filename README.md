@@ -175,10 +175,10 @@ Explore our complete data story on our [website](https://webpanada.vercel.app/).
 
 ## 👥 Team & Responsibilities
 - **Imane**: Website development, data story creation
-- **Koami**: Research question 2 analysis, monetization data integration
-- **Antoine**: Problem formulation, research question 1 analysis
-- **Adam**: Community management analysis
-- **Valentine**: Content strategy evolution analysis
+- **Koami**: Research question 2 analysis, monetization data integration, merging final results in the result notebook.
+- **Antoine**: Problem formulation, research question 1 analysis, merging final results in the result notebook.
+- **Adam**: Community management analysis, merging final results in the result notebook.
+- **Valentine**: Content strategy evolution analysis, merging final results in the result notebook.
 
 ## 📅 Timeline
 ## Project Timeline
