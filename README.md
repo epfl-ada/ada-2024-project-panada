@@ -59,6 +59,10 @@ audience reach, and upload patterns in the video metadata. Through this lens, we
 transition into a viable career platform and highlight the broader industry trends that support
 the professionalization of digital content creation.
 
+## Website
+
+You can find the data story of our project on our [website](https://webpanada.vercel.app/).
+
 ## Research Questions
 
 - How has the frequency and consistency of content creation evolved over time across different channel categories? 
@@ -67,9 +71,9 @@ the professionalization of digital content creation.
 
 - Which categories led YouTube's professionalization, and how did professional practices spread?
 
-- How does investment in content production reflect the transition from hobby to profession?
-
 - How has community management evolved from casual interaction to professional engagement strategies?
+
+In the Milestone 2, we had 5 research questions but we decided to remove one of them since it was highly correlated to another research question we already had.
 
 ## Proposed additional datasets
 
@@ -109,17 +113,7 @@ Key considerations include:
 
 ## Data Cleaning Pipeline
 
-Our data cleaning process aims to ensure a good quality input for our analysis by handling missing values effectively. The following steps outline the cleaning and preprocessing approach applied to our dataset:
-
-We started by identifying and evaluating missing values across the dataset. We also checked for inconsistencies or unusual entries that may require specific handling.
-
-1. **NaN Removal**:
-   - Removal of rows with a high proportion of missing values (>25% NaNs).
-   - For entries with low to moderate NaNs, we retained data where possible to preserve dataset integrity.
-
-2. **K-Nearest Neighbors (KNN) Imputation**:
-   - For remaining missing values, we used KNN imputation to predict and fill missing entries based on similarities between data points.
-   - Each missing value is replaced by the weighted average of its K-nearest neighbors, with K set to an optimal value (5 in our case) after testing for best imputation results.
+Our data cleaning process aims to ensure a good quality input for our analysis by handling missing values effectively. After a preliminary analysis of our data, we noticed that there were a very small proportion of missing values for every file of our dataset. Therefore, we decided to remove the samples that have missing values in our dataset, as it won't remove a significant proportion of the dataset.
 
 ## Proposed timeline
 
@@ -133,22 +127,15 @@ We started by identifying and evaluating missing values across the dataset. We a
 
 - 20.12.2024 Submit the Data Story
 
-## Organization within the team
 
-- Each member can work on one research question.
-- Each team member will be responsible for making the final visualization to complete the Data Story.
-- The website was created and developed by Imane
-  
-## Questions for TA (optional)
+## Tasks and Responsibilities
 
+- Imane: Created and developed the website, wrote the datastory on the website.
 
+- Koami: Preliminary data analysis during M2, analyzation and plotting graphs for the second research question, found additional datasets for monetization data, merging final results in the result notebook.
 
+- Antoine: Problem formulation, analyzation and plotting graphs for the first research question, merging final results in the result notebook, wrote the README.
 
-### Tasks and Responsibilities
-- Additional Dataset for each problem and feasibility assessement : Valentine
-- Data preprocessing pipeline (data cleaning, handling missing values, format adjustments) : Imane
-- Projet goals questions, README structure and writing, future method implementation for answer solving : Antoine
-- Initial descriptive analysis performance (distributions, correlations, etc.) and data visualisation : Koami
-- Potential method search for answer solving : Adam
+- Adam: Analyzation and plotting graphs of the the fourth research question, merging final results in the result notebook.
 
-
+- Valentine: Analyzation and plotting graphs of the third research question, merging final results in the result notebook.
