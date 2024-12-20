@@ -37,13 +37,13 @@ cd <project repo>
 pip install -r pip_requirements.txt
 ```
 
-## 🌐 Web Presence
-Explore our complete data story on our [website](https://webpanada.vercel.app/).
-
 ### Dataset Setup
 Download the dataset from [Zenodo](https://zenodo.org/records/4650046) and place it in the `/data` folder.
 
 Please download the additional datasets from [additional_datasets](https://drive.google.com/drive/folders/1q0pH2XHFk28kmkeQODJGFlvE8cmRkBDj?usp=drive_link) and place these files in a folder `data/` directory before running the analysis
+
+## 🌐 Web Presence
+Explore our complete data story on our [website](https://webpanada.vercel.app/).
 
 ## 📁 Project Structure
 ```
